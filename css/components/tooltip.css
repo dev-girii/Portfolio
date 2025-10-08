@@ -1,0 +1,115 @@
+/* Tooltip Styles */
+.tooltip-content {
+    display: none; /* Hide the entire container */
+}
+
+.tooltip-content > div {
+    display: none; /* Hide individual tooltip contents */
+}
+
+/* Keep your existing tooltip styles */
+.tooltip {
+    position: fixed;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 320px;
+    box-shadow: var(--shadow-elevated);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.tooltip--active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.tooltip::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* Tooltip positioning variations */
+.tooltip--top::before {
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border-right: none;
+    border-bottom: none;
+}
+
+.tooltip--bottom::before {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border-left: none;
+    border-top: none;
+}
+
+.tooltip--left::before {
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    border-top: none;
+    border-right: none;
+}
+
+.tooltip--right::before {
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    border-bottom: none;
+    border-left: none;
+}
+
+.tooltip__title {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.tooltip__content {
+    color: var(--on-surface);
+}
+
+.tooltip__section {
+    margin-bottom: 1rem;
+}
+
+.tooltip__section:last-child {
+    margin-bottom: 0;
+}
+
+.tooltip__section-title {
+    font-size: 0.85rem;
+    color: var(--on-surface-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tooltip__section span {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: var(--on-surface-variant);
+}
+
+.tooltip__section .tech-tag {
+    margin-bottom: 0.3rem;
+}
