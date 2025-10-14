@@ -80,6 +80,25 @@
         height: 40px;
         margin-right: 1rem;
     }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        height: auto; /* ADD THIS */
+        min-height: auto; /* ADD THIS */
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+        height: auto; /* ADD THIS */
+        min-height: auto; /* ADD THIS */
+    }
+    
+    /* Ensure form is fully visible */
+    .contact-form-container {
+        position: relative;
+        z-index: 1;
+    }    
 }
 
 @media (max-width: 576px) {
