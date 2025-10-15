@@ -1,0 +1,28 @@
+{
+    "name": "Giridharan R | Full Stack Developer",
+    "short_name": "Giridharan Portfolio",
+    "description": "Full Stack Developer specializing in React.js, Vue.js, Python, and modern web technologies",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#202124",
+    "theme_color": "#8ab4f8",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
