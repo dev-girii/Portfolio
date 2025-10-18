@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Giridharan R | Full Stack Developer | Portfolio</title>
@@ -53,8 +53,7 @@
     <link rel="stylesheet" href="css/components/sections.css">
     <link rel="stylesheet" href="css/components/tooltip.css">
     <link rel="stylesheet" href="css/components/responsive.css">
-    <link rel="stylesheet" href="css/components/animations.css">
-
+  <link rel="stylesheet" href="css/components/notifications.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DL69ME53M3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -95,6 +94,12 @@
         }
     }
     </script>
+
+    <!-- JavaScript Files -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/navigation.js"></script>
+    <script defer src="js/form-handler.js"></script>    
+    <script defer src="js/tooltip.js"></script>
 </head>
 <body>
   <!-- Page Loader -->
@@ -245,7 +250,7 @@
                                 <div class="passion-item__icon">
                                     <i class="fas fa-users" aria-hidden="true"></i>
                                 </div>
-                                <span class="passion-item__text">Team collaboration & mentorship</span>
+                                <span class="passion-item__text">Team collaboration</span>
                                 <div class="passion-item__indicator">
                                     <i class="fas fa-chevron-right" aria-hidden="true"></i>
                                 </div>
@@ -606,30 +611,38 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
       </div>
     </div>
     
-    <div class="contact-form-container">
-      <form class="contact-form">
-        <div class="form-group">
-          <label for="name" class="form-group__label">Your Name</label>
-          <input type="text" id="name" name="name" class="form-group__input" autocomplete="on" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email" class="form-group__label">Email Address</label>
-          <input type="email" id="email" name="email" class="form-group__input" autocomplete="on" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="message" class="form-group__label">Your Message</label>
-          <textarea id="message" name="message" rows="5" class="form-group__textarea" required 
-                    placeholder="Tell me about your project or how I can help..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-paper-plane"></i>
-          Send Message
-        </button>
-      </form>
+<div class="contact-form-container">
+  <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <!-- Netlify Bot Field (Hidden with proper class) -->
+    <div class="hidden">
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
     </div>
+    
+    <!-- Netlify Form Name (Hidden) -->
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <div class="form-group">
+      <label for="name" class="form-group__label">Your Name</label>
+      <input type="text" id="name" name="name" class="form-group__input" autocomplete="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email" class="form-group__label">Email Address</label>
+      <input type="email" id="email" name="email" class="form-group__input" autocomplete="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message" class="form-group__label">Your Message</label>
+      <textarea id="message" name="message" rows="5" class="form-group__textarea" required 
+                placeholder="Tell me about your project or how I can help..."></textarea>
+    </div>
+    
+    <button type="submit" class="submit-btn">
+      <i class="fas fa-paper-plane"></i>
+      Send Message
+    </button>
+  </form>
+</div>
   </div>
 </section>
     </main>
@@ -688,7 +701,7 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
 
     <!-- Team Collaboration Tooltip -->
     <div id="team-collaboration">
-        <strong class="tooltip__title">Team Collaboration & Mentorship</strong>
+        <strong class="tooltip__title">Team Collaboration</strong>
         <div class="tooltip__content">
             <div class="tooltip__section">
                 <h6 class="tooltip__section-title">Platforms & Methods</h6>
@@ -705,7 +718,7 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
             </div>
             <div class="tooltip__section">
                 <h6 class="tooltip__section-title">Impact</h6>
-                <span class="impact">25+ team members mentored</span>
+                <span class="impact">Worked with Teams efficiently</span>
             </div>
         </div>
     </div>
@@ -733,12 +746,6 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
         </div>
     </div>
 </div>
-
-    <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/form-handler.js"></script>
     <script>
 // Page loader functionality
 window.addEventListener('load', function() {
