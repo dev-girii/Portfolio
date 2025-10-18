@@ -7,7 +7,7 @@
 
     --on-surface: #e8eaed;
     --on-surface-variant: #9aa0a6;
-    --on-surface-muted: #5f6368;
+    --on-surface-muted: #aab1b9;
 
     --card-bg: #303134;
     --card-bg-light: #3c4043;
@@ -61,6 +61,7 @@
 /* Firefox Scrollbar */
 html {
     scrollbar-width: thin;
+    scroll-behavior: smooth;
     scrollbar-color: var(--primary) var(--surface-light);
 }
 
@@ -267,4 +268,7 @@ img {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;    
 }

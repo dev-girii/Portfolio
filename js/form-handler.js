@@ -1,12 +1,12 @@
-// Form handling functionality
+// Form handling functionality with Netlify integration
 function initializeFormHandler() {
-    const contactForm = document.querySelector('.contact-form form');
+    const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
     
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
         event.preventDefault();
         
         const formData = new FormData(event.target);
@@ -23,32 +23,49 @@ function initializeFormHandler() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Simulate form submission
-        setTimeout(() => {
-            // In a real application, you would send the data to a server here
-            console.log('Form submitted:', formProps);
+        try {
+            // Submit to Netlify
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
             
-            // Show success message
-            showNotification('Message sent successfully!', 'success');
+            if (response.ok) {
+                // Success - show confirmation modal and notification
+                showConfirmationModal();
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                
+                // Reset form
+                event.target.reset();
+            } else {
+                throw new Error('Network response was not ok');
+            }
             
-            // Reset form
-            event.target.reset();
-            
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+        } finally {
             // Reset button
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 2000);
+        }
     }
     
     function validateForm(data) {
-        const { name, email, message } = data;
+        const { name, email, message, 'bot-field': botField } = data;
         
-        if (!name.trim()) {
+        // Check honeypot
+        if (botField && botField.trim() !== '') {
+            return false; // Likely a bot
+        }
+        
+        if (!name || !name.trim()) {
             showNotification('Please enter your name', 'error');
             return false;
         }
         
-        if (!email.trim()) {
+        if (!email || !email.trim()) {
             showNotification('Please enter your email', 'error');
             return false;
         }
@@ -58,7 +75,7 @@ function initializeFormHandler() {
             return false;
         }
         
-        if (!message.trim()) {
+        if (!message || !message.trim()) {
             showNotification('Please enter your message', 'error');
             return false;
         }
@@ -71,8 +88,54 @@ function initializeFormHandler() {
         return emailRegex.test(email);
     }
     
+    function showConfirmationModal() {
+        const modal = document.createElement('div');
+        modal.className = 'confirmation-modal';
+        modal.innerHTML = `
+            <div class="confirmation-modal__overlay"></div>
+            <div class="confirmation-modal__content">
+                <div class="confirmation-modal__icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="confirmation-modal__title">Message Received!</h3>
+                <p class="confirmation-modal__message">
+                    Thank you for reaching out! I've received your message and will get back to you within 24 hours.
+                </p>
+                <button class="confirmation-modal__close-btn">
+                    Got it!
+                </button>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close modal functionality
+        const closeBtn = modal.querySelector('.confirmation-modal__close-btn');
+        const overlay = modal.querySelector('.confirmation-modal__overlay');
+        
+        const closeModal = () => {
+            modal.style.animation = 'modalFadeOut 0.3s ease';
+            setTimeout(() => {
+                if (modal.parentNode) {
+                    modal.parentNode.removeChild(modal);
+                }
+            }, 300);
+        };
+        
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+        
+        // Close on Escape key
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+    }
+    
     function showNotification(message, type) {
-        // Create notification element
         const notification = document.createElement('div');
         notification.className = `notification notification--${type}`;
         notification.innerHTML = `
@@ -81,54 +144,6 @@ function initializeFormHandler() {
                 <span>${message}</span>
             </div>
         `;
-        
-        // Add styles for notification
-        if (!document.querySelector('#notification-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'notification-styles';
-            styles.textContent = `
-                .notification {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: var(--card-bg);
-                    border: 1px solid var(--border-color);
-                    border-left: 4px solid var(--primary);
-                    border-radius: 8px;
-                    padding: 1rem 1.5rem;
-                    box-shadow: var(--shadow-elevated);
-                    z-index: 10000;
-                    transform: translateX(120%);
-                    transition: transform 0.3s ease;
-                    max-width: 350px;
-                }
-                .notification--success {
-                    border-left-color: var(--tertiary);
-                }
-                .notification--error {
-                    border-left-color: #ea4335;
-                }
-                .notification.active {
-                    transform: translateX(0);
-                }
-                .notification__content {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.8rem;
-                    color: var(--on-surface);
-                }
-                .notification__content i {
-                    font-size: 1.2rem;
-                }
-                .notification--success .notification__content i {
-                    color: var(--tertiary);
-                }
-                .notification--error .notification__content i {
-                    color: #ea4335;
-                }
-            `;
-            document.head.appendChild(styles);
-        }
         
         document.body.appendChild(notification);
         

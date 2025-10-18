@@ -79,3 +79,32 @@ function initializeNavigation() {
         });
     });
 }
+
+// Enhanced smooth scrolling with offset for fixed header
+function initSmoothScroll() {
+    const headerHeight = 0; // Adjust if you have a fixed header
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const targetPosition = target.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update URL without jumping
+                history.pushState(null, null, href);
+            }
+        });
+    });
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initSmoothScroll);
