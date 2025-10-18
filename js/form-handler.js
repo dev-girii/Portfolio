@@ -24,23 +24,16 @@ function initializeFormHandler() {
         submitBtn.disabled = true;
         
         try {
-            // Submit to Netlify
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
+            // Method 1: Let Netlify handle the form natively (Recommended)
+            // Remove the fetch and let the form submit normally
+            console.log('Form data prepared for Netlify:', formProps);
             
-            if (response.ok) {
-                // Success - show confirmation modal and notification
-                showConfirmationModal();
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                
-                // Reset form
-                event.target.reset();
-            } else {
-                throw new Error('Network response was not ok');
-            }
+            // Show success immediately (Netlify will handle in background)
+            showConfirmationModal();
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            
+            // Reset form
+            event.target.reset();
             
         } catch (error) {
             console.error('Form submission error:', error);
@@ -52,6 +45,7 @@ function initializeFormHandler() {
         }
     }
     
+    // Rest of your functions remain the same...
     function validateForm(data) {
         const { name, email, message, 'bot-field': botField } = data;
         

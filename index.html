@@ -612,14 +612,14 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
     </div>
     
 <div class="contact-form-container">
-  <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <!-- Netlify Bot Field (Hidden with proper class) -->
-    <div class="hidden">
-      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-    </div>
+  <form class="contact-form" name="contact" method="POST" netlify>
+    <!-- Netlify Form Name (MUST be exactly like this) -->
+    <input type="hidden" name="form-name" value="contact">
     
-    <!-- Netlify Form Name (Hidden) -->
-    <input type="hidden" name="form-name" value="contact" />
+    <!-- Honeypot Field -->
+    <p class="hidden">
+      <label>Don't fill this out if you're human: <input name="bot-field"></label>
+    </p>
     
     <div class="form-group">
       <label for="name" class="form-group__label">Your Name</label>
