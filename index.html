@@ -61,7 +61,14 @@
   gtag('js', new Date());
 
   gtag('config', 'G-DL69ME53M3');
-</script>    
+</script>   
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "tv19vg9r5d");
+</script> 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -146,6 +153,12 @@
                     </a>
                 </li>
                 <li class="sidebar__nav-item">
+                    <a href="#achievements" class="sidebar__nav-link">
+                        <i class="fas fa-trophy sidebar__nav-icon" aria-hidden="true"></i> 
+                        <span>Achievements</span>
+                    </a>
+                </li>
+                <li class="sidebar__nav-item">
                     <a href="#skills" class="sidebar__nav-link">
                         <i class="fas fa-code sidebar__nav-icon" aria-hidden="true"></i> 
                         <span>Skills</span>
@@ -155,6 +168,12 @@
                     <a href="#projects" class="sidebar__nav-link">
                         <i class="fas fa-project-diagram sidebar__nav-icon" aria-hidden="true"></i> 
                         <span>Projects</span>
+                    </a>
+                </li>
+                <li class="sidebar__nav-item">
+                    <a href="#activity" class="sidebar__nav-link">
+                        <i class="fas fa-chart-line sidebar__nav-icon" aria-hidden="true"></i> 
+                        <span>Activity</span>
                     </a>
                 </li>
                 <li class="sidebar__nav-item">
@@ -204,7 +223,7 @@
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-card__number" data-target="50">0</div>
-                            <div class="stat-card__label">Projects Done</div>
+                            <div class="stat-card__label">Projects Done (approx)</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-card__number" data-target="5">0</div>
@@ -278,7 +297,7 @@
                         <h4 class="current-focus__title">Currently Exploring</h4>
                         <div class="tech-badges">
                             <span class="tech-badge">AI/ML Integration</span>
-                            <span class="tech-badge">Blockchain</span>
+                            <span class="tech-badge">SpringBoot</span>
                             <span class="tech-badge">DSA</span>
                             <span class="tech-badge">Best Practices</span>
                         </div>
@@ -342,6 +361,26 @@
   </div>
 </section>
 
+<!-- Achievement Section -->
+<section id="achievements" class="section animate-fadeInUp delay-200">
+  <h2 class="section__heading">
+    <i class="fas fa-trophy section__heading-icon"></i> 
+    Achievements
+  </h2>
+  <div class="section__divider"></div>
+
+  <div class="achievement-item">
+    <div class="achievement-item__header">
+      <div class="achievement-item__title">1st Prize Winner - Automatic NCRP Reading and Updating Tool</div>
+      <div class="achievement-item__date">Feb 7, 2026</div>
+    </div>
+    <div class="achievement-item__subtitle">CSI Engineering College (with Cyber Wing Nilgiris)</div>
+    <div class="achievement-item__description">
+      Led a team of 4 members through finals among 150+ teams and won 1st prize (₹25,000). Project delivered an automated tool for NCRP reading and update workflows, demonstrating leadership, collaboration, and technical execution.
+    </div>
+  </div>
+</section>
+
 <!-- Skills Section -->
 <section id="skills" class="section animate-fadeInUp delay-200">
   <h2 class="section__heading">
@@ -351,6 +390,8 @@
   <div class="section__divider"></div>
 
   <div class="skills-container">
+
+    <!-- Frontend -->
     <div class="skill-category">
       <h3 class="skill-category__title">
         <i class="fas fa-paint-brush skill-category__icon"></i> 
@@ -359,7 +400,7 @@
       <ul class="skill-list">
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          React JS
+          HTML5 & CSS3
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
@@ -367,19 +408,20 @@
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
+          Vue.js
+        </li>
+        <li class="skill-list__item">
+          <i class="fas fa-check skill-list__icon"></i> 
           Bootstrap
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          HTML5 & CSS3
-        </li>
-        <li class="skill-list__item">
-          <i class="fas fa-check skill-list__icon"></i> 
-          Vue.js
+          Responsive Design
         </li>
       </ul>
     </div>
 
+    <!-- Backend + Database -->
     <div class="skill-category">
       <h3 class="skill-category__title">
         <i class="fas fa-server skill-category__icon"></i> 
@@ -388,11 +430,11 @@
       <ul class="skill-list">
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          Node.js
+          Java (Spring Boot)
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          Python & Flask
+          Python (Flask)
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
@@ -400,15 +442,16 @@
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          MySQL
+          Authentication
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          Postgres
+          MySQL & PostgreSQL
         </li>
       </ul>
     </div>
 
+    <!-- Tools -->
     <div class="skill-category">
       <h3 class="skill-category__title">
         <i class="fas fa-tools skill-category__icon"></i> 
@@ -429,14 +472,11 @@
         </li>
         <li class="skill-list__item">
           <i class="fas fa-check skill-list__icon"></i> 
-          Docker
-        </li>
-        <li class="skill-list__item">
-          <i class="fas fa-check skill-list__icon"></i> 
           Agile Methodologies
         </li>
       </ul>
     </div>
+
   </div>
 </section>
 
@@ -537,6 +577,41 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
     </div>
 </section>
 
+<!-- Activity Section -->
+<section id="activity" class="section animate-fadeInUp delay-200">
+  <h2 class="section__heading">
+    <i class="fas fa-chart-line section__heading-icon"></i>
+    Activity & Contributions
+  </h2>
+  <div class="section__divider"></div>
+
+  <div class="activity-section-grid">
+    <div class="activity-card activity-card--dark">
+      <h3>GitHub Commit Calendar</h3>
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=dev-girii&theme=github_dark" 
+     alt="GitHub Activity Graph" loading="lazy" />
+      <p>Visualizes recent commit activity. For darker theme and better fit use GitHub profile analytics.</p>
+      <a href="https://github.com/dev-girii" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+
+    <div class="activity-card activity-card--dark">
+      <h3>LeetCode Performance</h3>
+      <img src="https://leetcard.jacoblin.cool/dev-giridharan?theme=dark&font=baloo&ext=contest" 
+     alt="LeetCode Stats" loading="lazy" />
+      <p>Tracks your problem solving heatmap, acceptance rate and ranking.</p>
+      <a href="https://leetcode.com/u/dev-giridharan" target="_blank" rel="noopener">View on LeetCode</a>
+    </div>
+
+    <div class="activity-card activity-card--dark">
+      <h3>GitHub Stats (Dark)</h3>
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=dev-girii&theme=dark" 
+     alt="GitHub Streak Stats" loading="lazy" />
+      <p>Code activity summary, repo contributions, and language distribution.</p>
+      <a href="https://github.com/dev-girii" target="_blank" rel="noopener">See full stats</a>
+    </div>
+  </div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="section animate-fadeInUp delay-200">
   <h2 class="section__heading">
@@ -603,9 +678,9 @@ GitMetrics is a tool designed to help you track and analyze your GitHub contribu
             <i class="fab fa-codepen"></i>
             <span>Codepen</span>
           </a>
-          <a href="mailto:giridharan.r.2023.cce@ritchennai.edu.in" class="social-link">
-            <i class="fas fa-envelope"></i>
-            <span>Mail</span>
+          <a href="https://leetcode.com/u/dev-giridharan" class="social-link">
+            <i class="fas fa-laptop-code"></i>
+            <span>Leetcode</span>
           </a>
         </div>
       </div>

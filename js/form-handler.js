@@ -8,38 +8,44 @@ function initializeFormHandler() {
     
     async function handleFormSubmit(event) {
         event.preventDefault();
-        
+
         const formData = new FormData(event.target);
         const formProps = Object.fromEntries(formData);
-        
+
         // Basic validation
         if (!validateForm(formProps)) {
             return;
         }
-        
+
         // Show loading state
         const submitBtn = event.target.querySelector('.submit-btn');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
-        
+
         try {
-            // Method 1: Let Netlify handle the form natively (Recommended)
-            // Remove the fetch and let the form submit normally
-            console.log('Form data prepared for Netlify:', formProps);
-            
-            // Show success immediately (Netlify will handle in background)
+            const payload = new URLSearchParams(formData).toString();
+
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: payload
+            });
+
+            if (!response.ok) {
+                throw new Error('Form submit failed with status ' + response.status);
+            }
+
             showConfirmationModal();
             showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            
-            // Reset form
             event.target.reset();
-            
+
         } catch (error) {
             console.error('Form submission error:', error);
             showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
         } finally {
-            // Reset button
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }

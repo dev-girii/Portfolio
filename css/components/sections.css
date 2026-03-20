@@ -249,6 +249,49 @@
     font-size: 0.9rem;
 }
 
+/* Achievement Section */
+.achievement-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.achievement-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.achievement-item__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-item__title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.achievement-item__date {
+    color: var(--primary);
+    font-size: 0.9rem;
+    background: rgba(138, 180, 248, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.achievement-item__subtitle {
+    color: var(--on-surface-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.achievement-item__description {
+    color: var(--on-surface-variant);
+    font-size: 0.9rem;
+}
+
 /* Skills Section */
 .skills-container {
     display: grid;
@@ -421,13 +464,60 @@
     margin-right: 0.5rem;
 }
 
+/* Activity Section */
+.activity-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.activity-card {
+    background: var(--surface-dark);
+    border: 1px solid rgba(138, 180, 248, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+    color: var(--surface);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.activity-card h3 {
+    margin: 0 0 0.7rem;
+    color: var(--on-surface);
+    font-size: 1rem;
+}
+
+.activity-card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+}
+
+.activity-card p {
+    margin: 0.7rem 0;
+    font-size: 0.9rem;
+    color: #d9d9d9;
+}
+
+.activity-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.activity-card a:hover {
+    text-decoration: underline;
+}
+
 /* Contact Section */
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 3rem;
-    min-height: auto; /* ADD THIS */
-    overflow: visible; /* ADD THIS */
+    min-height: auto;
+    overflow: visible;
 }
 
 .contact-info__title {
@@ -440,6 +530,18 @@
     color: var(--on-surface-variant);
     margin-bottom: 2.5rem;
     line-height: 1.7;
+}
+
+.activity-widget h5 {
+    margin: 0 0 0.8rem;
+    font-size: 0.95rem;
+    color: var(--on-surface);
+}
+
+.activity-widget img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
 }
 
 .contact-methods {
