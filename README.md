@@ -1,6 +1,4 @@
 # Personal Portfolio Website
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/dev-girii/Portfolio)
-
 This repository contains the source code for my personal portfolio website. It is a fully responsive, single-page site built with pure HTML, CSS, and modern JavaScript, showcasing my skills, projects, and professional experience.
 
 **Live Site: [https://giridharan-portfolio.netlify.app/](https://giridharan-portfolio.netlify.app/)**
@@ -57,5 +55,3 @@ To run this project locally:
     ```
 
 3.  Open the `index.html` file in your preferred web browser.
-
-For the best development experience, it is recommended to use a local development server. A popular choice is the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension for Visual Studio Code.
